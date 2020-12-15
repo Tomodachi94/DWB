@@ -1,17 +1,19 @@
 # bot.py
+print("Loading dependancies...")
 import os
-
 import discord
 from dotenv import load_dotenv
+print("Dependancies loaded!")
 
+print("Loading config from '.env'...")
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
+prefix = os.getenv('DISCORD_PREFIX')
 
 client = discord.Client()
 
 from discord.ext import commands
-prefix = "_"
 bot = commands.Bot(command_prefix=prefix)
 
 
@@ -36,4 +38,4 @@ async def echo(ctx, *, content:str):
     await ctx.send(content)
 
 
-bot.run(TOKEN)  # Where 'TOKEN' is your bot token
+bot.run(TOKEN)
