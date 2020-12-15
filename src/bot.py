@@ -1,12 +1,12 @@
 # bot.py
-print("Loading dependancies...")
+print("[Dash] Loading dependancies...")
 import os
 import discord
 from discord.ext import commands
-import python-dotenv
-print("Dependancies loaded!")
+import dotenv
+print("[Dash] Dependancies loaded!")
 
-print("Loading config from '.env'...")
+print("[Dash] Loading config from '.env'...")
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
@@ -20,10 +20,10 @@ bot = commands.Bot(command_prefix=prefix)
 
 @bot.event
 async def on_ready():
-    print("Core Dash functionality is online")
-    print("Setting status")
+    print("[Dash] Core Dash functionality is online")
+    print("[Dash] Setting status")
     await bot.change_presence(activity=discord.Playing(name="_help"))
-    print('My R')
+    print("[Dash] Status set")
 
 
 @bot.command()
