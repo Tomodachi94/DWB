@@ -19,7 +19,11 @@ bot = commands.Bot(command_prefix=prefix)
 
 @bot.event
 async def on_ready():
-    print("Dash is online and awaiting a command...~")
+    print("Core Dash functionality is online")
+    print("Setting status")
+    await bot.change_presence(activity=discord.Playing(name="_help"))
+    print('My R')
+
 
 @bot.command()
 async def ping(ctx):
