@@ -2,6 +2,8 @@
 print("Loading dependancies...")
 import os
 import discord
+from discord.ext import commands
+import dotenv
 from dotenv import load_dotenv
 print("Dependancies loaded!")
 
