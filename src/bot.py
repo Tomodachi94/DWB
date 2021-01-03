@@ -106,6 +106,16 @@ async def on_command_error(ctx, error):
 		    "That command doesn't sit right with my stomach... :face_vomiting: Type **_help** for commands and their usages."
 		)
 
+@client.command()
+@commands.is_owner()
+async def shutdown(ctx):
+    await ctx.bot.logout()
+
+@client.command()
+@commands.is_owner()
+async def restart(ctx):
+    await ctx.bot.logout()
+    await login("your_token", bot=True)
 
 @bot.command()
 async def ping(ctx):
@@ -133,7 +143,8 @@ async def echo(ctx, *, content: str):
 
 
 @bot.command(aliases=['wl', 'link'])
-async def wikilink(ctx, arg: str):
+async def wikilink(ctx, *, arg: str):
+	arg.replace(" ", "_")
 	r = requests.get(wikidomain + arg)
 	if r.status_code == 404:
 		await ctx.send("Page does not exist. Here's the link anyways.")
@@ -142,7 +153,7 @@ async def wikilink(ctx, arg: str):
 @bot.command()
 async def b(ctx):
   """
-  Formerly called an argument a b*@*%*, was later removed at the request of Xbony2.
+  Formerly called an argument a b*\*\*\*, was later removed at the request of Xbony2.
   """
   await ctx.send("This command was removed at the request of Xbony2.")
 
@@ -151,7 +162,7 @@ async def helpuser(ctx):
   """
   Returns help for a helpuser.
   """
-  embed=discord.Embed(title="Hello helpuser!", description="This is the FTB *wiki* Discord, not the Official FTB Discord. For an invite to that server and others, please visit <#342025316442701834>.", color=0x0a1bff)
+  embed=discord.Embed(title="Hello!", description="This is the FTB *wiki* Discord, not the Official FTB Discord. For an invite to that server and others that can better help you, please visit <#342025316442701834>.", color=0x0a1bff)
   embed.set_author(name=ctx.author)
   embed.set_footer(text="_help for help | Bot by Tomodachi94")
   await ctx.send(embed=embed)
