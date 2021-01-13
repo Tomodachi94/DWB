@@ -31,13 +31,6 @@ import discord
 from discord.ext import commands
 print(bcolors.OKGREEN + "[Dash/bot.py:dep] External API 'discord' loaded" +
       bcolors.ENDC)
-print("[Dash/bot.py:dep] Loading 'dotenv' API")
-import dotenv
-print("[Dash/bot.py:dep] Loading 'load_dotenv' from 'dotenv' API")
-from dotenv import load_dotenv
-print(bcolors.OKGREEN + "[Dash/bot.py:dep] External API 'dotenv' loaded" +
-      bcolors.ENDC)
-print("[Dash/bot.py:dep] Loading 'json' API")
 import json
 print(bcolors.OKGREEN + "[Dash/bot.py:dep] External API 'json' loaded" +
       bcolors.ENDC)
@@ -75,11 +68,6 @@ client = discord.Client()
 def chlock():
   if ctx.channel.id != 319925398949330945:
     return
-
-
-print("[Dash/bot.py:dotenv] Reading .env file for config")
-#.env variables
-load_dotenv()
 
 prefix = os.getenv("DISCORD_PREFIX")
 TOKEN = os.getenv("DISCORD_TOKEN")
