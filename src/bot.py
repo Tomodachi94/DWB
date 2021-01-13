@@ -139,11 +139,11 @@ async def wikilink(ctx, *, arg: str):
 	await ctx.send(wikidomain + arg)
 
 @bot.command()
-async def b(ctx):
+async def b(ctx, thingToDiss):
   """
-  Formerly called an argument a b*\*\*\*, was later removed at the request of Xbony2.
+  Disses the provided argument.
   """
-  await ctx.send("This command was removed at the request of Xbony2.")
+  await ctx.send(thingToDiss + " is a bitch!")
 
 @bot.command()
 async def helpuser(ctx):
