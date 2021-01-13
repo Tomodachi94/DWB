@@ -1,46 +1,30 @@
-# bot.py
-class bcolors:
-	HEADER = '\033[95m'
-	OKBLUE = '\033[94m'
-	OKCYAN = '\033[96m'
-	OKGREEN = '\033[92m'
-	WARNING = '\033[93m'
-	FAIL = '\033[91m'
-	ENDC = '\033[0m'
-	BOLD = '\033[1m'
-	UNDERLINE = '\033[4m'
-
-
-print("[Dash/bot.py] Starting Dash...")
-print("[Dash/bot.py:dep] Loading essential dependencies...")
+import logger
+logger.info("Logging enabled.")
+logger.info("[Dash/bot.py] Starting Dash...")
+logger.info("[Dash/bot.py:dep] Loading essential dependencies...")
 #Required Deps
-print("[Dash/bot.py:dep] Loading 'os' API")
+logger.info("[Dash/bot.py:dep] Loading 'os' API")
 import os
-print(bcolors.OKGREEN + "[Dash/bot.py:dep] External API 'os' loaded" +
-      bcolors.ENDC)
-print("[Dash/bot.py:dep] Loading 'requests' API")
+logger.info("[Dash/bot.py:dep] External API 'os' loaded")
+logger.info("[Dash/bot.py:dep] Loading 'requests' API")
 import requests
-print(bcolors.OKGREEN + "[Dash/bot.py:dep] External API 'requests' loaded" +
-      bcolors.ENDC)
-print("[Dash/bot.py:dep] Loading 'flask' API")
+logger.info("[Dash/bot.py:dep] External API 'requests' loaded")
+logger.info("[Dash/bot.py:dep] Loading 'flask' API")
 import flask
-print(bcolors.OKGREEN + "[Dash/bot.py:dep] External API 'flask' loaded" +
-      bcolors.ENDC)
-print("[Dash/bot.py:dep] Loading 'discord' API")
+logger.info("[Dash/bot.py:dep] External API 'flask' loaded")
+logger.info("[Dash/bot.py:dep] Loading 'discord' API")
 import discord
 from discord.ext import commands
-print(bcolors.OKGREEN + "[Dash/bot.py:dep] External API 'discord' loaded" +
-      bcolors.ENDC)
+logger.info("[Dash/bot.py:dep] External API 'discord' loaded")
 import json
-print(bcolors.OKGREEN + "[Dash/bot.py:dep] External API 'json' loaded" +
-      bcolors.ENDC)
+logger.info("[Dash/bot.py:dep] External API 'json' loaded")
 #Slightly Less Required Deps
 ##None yet
 #APIs
 import mediawiki
-print(bcolors.OKGREEN + "[Dash/bot.py] Dependancies loaded" + bcolors.ENDC)
+logger.info("[Dash/bot.py] Dependancies loaded")
 #KeepAlive
-print("[Dash/keepalive.py] Loading KeepAlive")
+logger.info("[Dash/keepalive.py] Loading KeepAlive")
 from flask import Flask
 from threading import Thread
 
@@ -61,7 +45,7 @@ def keep_alive():
 	server.start()
 
 
-#print("[Dash/keepalive.py] KeepAlive loaded!")
+#logger.info("[Dash/keepalive.py] KeepAlive loaded")
 
 client = discord.Client()
 
@@ -80,11 +64,12 @@ bot = commands.Bot(command_prefix=prefix)
 
 @bot.event
 async def on_ready():
-	print("[Dash/bot.py] Dash is online")
-	print("[Dash/bot.py:Status] Setting status")
+	logger.info("[Dash/bot.py] Dash is online")
+	logger.info("[Dash/bot.py:Status] Setting status")
 	await bot.change_presence(
 	    activity=discord.Game(name=prefix + "help for help"))
-	print(bcolors.OKGREEN + "[Dash/bot.py:Status] Status set" + bcolors.ENDC)
+	logger.info("[Dash/bot.py:Status] Status set"
+	)
 
 
 @bot.event
@@ -110,7 +95,7 @@ async def ping(ctx):
 	'''
     Gets the current latency of Dash.
     '''
-	print("[Dash/bot.py:cmd] Command ping recieved")
+	logger.info("[Dash/bot.py:cmd] Command ping recieved")
 	# Get the latency of the bot
 	latency = bot.latency  # Included in the Discord.py library
 	#Round the result
@@ -121,7 +106,7 @@ async def ping(ctx):
 	embed = discord.Embed(title="Ping", description="Ping is " + latency)
 	embed.set_footer(text="_help for help | Bot by Tomodachi94")
 	await ctx.send(embed=embed)
-	print("[Dash/bot.py:cmd] Bot pinged. Latency is " + latency)
+	logger.info("[Dash/bot.py:cmd] Bot pinged. Latency is " latency)
 
 
 @bot.command()
