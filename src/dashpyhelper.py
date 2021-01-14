@@ -7,7 +7,7 @@ def logSender():
         def filter(self, record):
             record.hostname = ContextFilter.hostname
             return True
-    syslog = SysLogHandler(address=('logsN.papertrailapp.com', XXXXX))
+    syslog = SysLogHandler(address=(os.getenv("PAPERTRAIL_SERVER"), os.getenv("PAPERTRAIL_PORT")))
     syslog.addFilter(ContextFilter())
     format = '%(asctime)s %(hostname)s YOUR_APP: %(message)s'
     formatter = logging.Formatter(format, datefmt='%b %d %H:%M:%S')
