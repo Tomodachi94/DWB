@@ -15,3 +15,11 @@ def logSender():
     logging = logging.getLogger()
     logging.addHandler(syslog)
     logging.setLevel(logging.INFO)
+    tb = ""
+    try:
+        a = 1/0
+    except:
+        tb = traceback.format_exc()
+        lines = tb.split('\n')
+        for l in lines:
+            logger.info(l)
