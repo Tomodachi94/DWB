@@ -1,4 +1,3 @@
-dashph.logSender()
 import logging
 logging.info("Logging to Papertrail is active.")
 
