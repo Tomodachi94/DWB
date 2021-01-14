@@ -133,7 +133,7 @@ async def wikilink(ctx, *, arg: str):
 	await ctx.send(wikidomain + arg)
 
 @bot.command()
-async def b(ctx, thingToDiss):
+async def b(ctx, *, thingToDiss):
   """
   Disses the provided argument.
   """
