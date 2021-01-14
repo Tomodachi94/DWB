@@ -89,10 +89,10 @@ async def on_command_error(ctx, error):
 		    "That command doesn't sit right with my stomach... :face_vomiting: Type **_help** for commands and their usages."
 		)
 
-@client.command()
-@client.is_owner()
-async def shutdown(ctx):
-    await ctx.bot.logout()
+#@client.command()
+#@client.is_owner()
+#async def shutdown(ctx):
+#    await ctx.bot.logout()
 
 @client.command()
 @commands.is_owner()
