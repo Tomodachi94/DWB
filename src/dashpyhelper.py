@@ -22,4 +22,4 @@ def logSender():
         tb = traceback.format_exc()
         lines = tb.split('\n')
         for l in lines:
-            logger.info(l)
+            logging.info(l)
