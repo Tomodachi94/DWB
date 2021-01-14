@@ -94,11 +94,11 @@ async def on_command_error(ctx, error):
 #async def shutdown(ctx):
 #    await ctx.bot.logout()
 
-@client.command()
-@commands.is_owner()
-async def restart(ctx):
-    await ctx.bot.logout()
-    await bot.login(os.getenv("DISCORD_TOKEN"), bot=True)
+#@client.command()
+#@commands.is_owner()
+#async def restart(ctx):
+#    await ctx.bot.logout()
+#    await bot.login(os.getenv("DISCORD_TOKEN"), bot=True)
 
 @bot.command()
 async def ping(ctx):
