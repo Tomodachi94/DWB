@@ -1,8 +1,8 @@
 import dashpyhelper as dashph
 
 dashph.logSender()
-logging.info("Logging to Papertrail is active.")
 import logging
+logging.info("Logging to Papertrail is active.")
 
 logging.info("")
 logging.info("[Dash/bot.py:dep] Loading 'os' API")
@@ -101,7 +101,7 @@ async def shutdown(ctx):
 @commands.is_owner()
 async def restart(ctx):
     await ctx.bot.logout()
-    await login("your_token", bot=True)
+    await login(os.getenv("DISCORD_TOKEN"), bot=True)
 
 @bot.command()
 async def ping(ctx):
@@ -119,7 +119,7 @@ async def ping(ctx):
 	embed = discord.Embed(title="Ping", description="Ping is " + latency)
 	embed.set_footer(text="_help for help | Bot by Tomodachi94")
 	await ctx.send(embed=embed)
-	logging.info("[Dash/bot.py:cmd] Bot pinged. Latency is ", latency)
+	logging.info("[Dash/bot.py:cmd] Bot pinged. Latency is {{latency}}")
 
 @bot.command()
 async def echo(ctx, *, content: str):
