@@ -1,5 +1,5 @@
 import logging
-logging.info("Logging to Papertrail is active.")
+logging.info("Logging is active.")
 
 logging.info("")
 logging.info("[Dash/bot.py:dep] Loading 'os' API")
