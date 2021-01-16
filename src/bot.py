@@ -113,10 +113,10 @@ async def ping(ctx):
 	#Convert to a string
 	latency = str(latency)
 	# Send it to the user
-	embed = discord.Embed(title="Ping", description="Ping is {latency}")
+	embed = discord.Embed(title="Ping", description="Ping is {{latency}}")
 	embed.set_footer(text="_help for help | Bot by Tomodachi94")
 	await ctx.send(embed=embed)
-	logging.info("[Dash/bot.py:cmd] Bot pinged. Latency is {latency}")
+	logging.info("[Dash/bot.py:cmd] Bot pinged. Latency is {{latency}}")
 
 @bot.command()
 async def echo(ctx, *, content: str):
