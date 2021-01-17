@@ -106,7 +106,7 @@ async def echo(ctx, *, content: str):
 	await ctx.send(content)
 
 
-@bot.command(aliases='wl', 'link'])
+@bot.command(aliases=['wl', 'link'])
 async def wikilink(ctx, *, arg: str):
 	arg.replace(" ", "_")
 	r = requests.get(wikidomain + arg)
