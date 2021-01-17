@@ -3,7 +3,9 @@ Dash is a bot for the Official FTB Gamepedia's Discord.
 """
 import logging
 
-logging.basicConfig(formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s %(pathname)s - %(message)s')
+logging.basicConfig(
+	formatter = logging.Formatter(
+		"%(asctime)s - %(name)s - %(levelname)s %(pathname)s - %(message)s"))
 
 logging.info("Starting Dash...")
 logging.info("Loading dependencies...")
