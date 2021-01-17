@@ -2,8 +2,6 @@ import logging
 
 logging.basicConfig(formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s %(pathname)s - %(message)s')
 
-logging.info("Logging is active.")
-
 logging.info("Starting Dash...")
 logging.info("Loading dependencies...")
 
