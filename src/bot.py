@@ -8,23 +8,23 @@ logging.info("Starting Dash...")
 logging.info("Loading dependencies...")
 
 logging.info("")
-logging.info("[Loading 'os' API")
+logging.info("Loading 'os' API")
 import os
 
-logging.info("[External API 'os' loaded")
-logging.info("[Loading 'requests' API")
+logging.info("External API 'os' loaded")
+logging.info("Loading 'requests' API")
 import requests
 
-logging.info("[External API 'requests' loaded")
-logging.info("[Loading 'flask' API")
+logging.info("External API 'requests' loaded")
+logging.info("Loading 'flask' API")
 import flask
 
-logging.info("[External API 'flask' loaded")
-logging.info("[Loading 'discord' API")
+logging.info("External API 'flask' loaded")
+logging.info("Loading 'discord' API")
 import discord
 from discord.ext import commands
 
-logging.info("[External API 'discord' loaded")
+logging.info("External API 'discord' loaded")
 import json
 
 logging.info("External API 'json' loaded")
@@ -77,7 +77,7 @@ async def ping(ctx):
 	"""
     Gets the current latency of Dash.
     """
-	logging.info("[Dash/bot.py:cmd] Command ping recieved")
+	logging.info("Dash/bot.py:cmd] Command ping recieved")
 	# Get the latency of the bot
 	latency = bot.latency  # Included in the Discord.py library
 	#Round the result
@@ -88,7 +88,7 @@ async def ping(ctx):
 	embed = discord.Embed(title="Ping", description=f"Ping is {latency}")
 	embed.set_footer(text="_help for help | Bot by Tomodachi94")
 	await ctx.send(embed=embed)
-	logging.info(f"[Dash/bot.py:cmd] Bot pinged. Latency is {latency}")
+	logging.info(f"Dash/bot.py:cmd] Bot pinged. Latency is {latency}")
 
 @bot.command()
 """
@@ -98,7 +98,7 @@ async def echo(ctx, *, content: str):
 	await ctx.send(content)
 
 
-@bot.command(aliases=['wl', 'link'])
+@bot.command(aliases='wl', 'link'])
 async def wikilink(ctx, *, arg: str):
 	arg.replace(" ", "_")
 	r = requests.get(wikidomain + arg)
