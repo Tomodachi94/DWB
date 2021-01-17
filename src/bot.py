@@ -1,6 +1,3 @@
-"""
-Dash is a bot for the Official FTB Gamepedia's Discord.
-"""
 import logging
 
 logging.basicConfig(
