@@ -1,39 +1,41 @@
 import logging
+
+logging.basicConfig(formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s %(pathname)s - %(message)s')
+
 logging.info("Logging is active.")
 
 logging.info("")
-logging.info("[Dash/bot.py:dep] Loading 'os' API")
+logging.info("[Loading 'os' API")
 import os
 
-logging.info("[Dash/bot.py:dep] External API 'os' loaded")
-logging.info("[Dash/bot.py:dep] Loading 'requests' API")
+logging.info("[External API 'os' loaded")
+logging.info("[Loading 'requests' API")
 import requests
 
-logging.info("[Dash/bot.py:dep] External API 'requests' loaded")
-logging.info("[Dash/bot.py:dep] Loading 'flask' API")
+logging.info("[External API 'requests' loaded")
+logging.info("[Loading 'flask' API")
 import flask
 
-logging.info("[Dash/bot.py:dep] External API 'flask' loaded")
-logging.info("[Dash/bot.py:dep] Loading 'discord' API")
+logging.info("[External API 'flask' loaded")
+logging.info("[Loading 'discord' API")
 import discord
 from discord.ext import commands
 
-logging.info("[Dash/bot.py:dep] External API 'discord' loaded")
+logging.info("[External API 'discord' loaded")
 import json
 
-logging.info("[Dash/bot.py:dep] External API 'json' loaded")
-#Slightly Less Required Deps
-##None yet
-#APIs
+logging.info("External API 'json' loaded")
+
+logging.info("")
 import mediawiki
 
-logging.info("[Dash/bot.py] Dependancies loaded")
+logging.info("Dependancies loaded")
 
-logging.info("[Dash/bot.py] Starting Dash...")
-logging.info("[Dash/bot.py:dep] Loading essential dependencies...")
+logging.info("Starting Dash...")
+logging.info("Loading essential dependencies...")
 #Required Deps
 #KeepAlive
-logging.info("[Dash/keepalive.py] Loading KeepAlive")
+logging.info("Loading KeepAlive")
 from threading import Thread
 
 from flask import Flask
@@ -74,12 +76,11 @@ bot = commands.Bot(command_prefix=prefix)
 
 @bot.event
 async def on_ready():
-	logging.info("[Dash/bot.py] Dash is online")
-	logging.info("[Dash/bot.py:Status] Setting status")
+	logging.info("Dash is online")
+	logging.info("Setting status")
 	await bot.change_presence(
 	    activity=discord.Game(name=prefix + "help for help"))
-	logging.info("[Dash/bot.py:Status] Status set"
-	)
+	logging.info("Status set")
 
 
 @bot.event
@@ -119,8 +120,10 @@ async def ping(ctx):
 	logging.info(f"[Dash/bot.py:cmd] Bot pinged. Latency is {latency}")
 
 @bot.command()
+"""
+Sends a message back to a user.
+"""
 async def echo(ctx, *, content: str):
-	chlock()
 	await ctx.send(content)
 
 
