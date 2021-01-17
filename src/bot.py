@@ -61,10 +61,6 @@ def keep_alive():
 
 client = discord.Client()
 
-def chlock():
-  if ctx.channel.id != 319925398949330945:
-    return
-
 prefix = os.getenv("DISCORD_PREFIX")
 TOKEN = os.getenv("DISCORD_TOKEN")
 wikidomain = os.getenv("MEDIAWIKI_WIKI")
