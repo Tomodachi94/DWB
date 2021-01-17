@@ -102,9 +102,9 @@ async def on_command_error(ctx, error):
 
 @bot.command()
 async def ping(ctx):
-	'''
+	"""
     Gets the current latency of Dash.
-    '''
+    """
 	logging.info("[Dash/bot.py:cmd] Command ping recieved")
 	# Get the latency of the bot
 	latency = bot.latency  # Included in the Discord.py library
