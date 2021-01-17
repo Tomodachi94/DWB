@@ -7,6 +7,8 @@ __Dash__ is a Discord bot for [the Official FTB wiki](ftb.gamepedia.com)'s [Disc
 ## License
 
 Dash - A Discord bot for the FTB Gamepedia Discord.
+
 [Source](https://github.com/Tomodachi94/Dash)
 © Tomodachi94 2021 MIT License
+
 A full copy of the license should have been distrubuted with this program. If not, the license can be found [here](https://mit-license.org/).
