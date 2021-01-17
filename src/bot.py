@@ -4,6 +4,9 @@ logging.basicConfig(formatter = logging.Formatter('%(asctime)s - %(name)s - %(le
 
 logging.info("Logging is active.")
 
+logging.info("Starting Dash...")
+logging.info("Loading dependencies...")
+
 logging.info("")
 logging.info("[Loading 'os' API")
 import os
@@ -30,34 +33,6 @@ logging.info("")
 import mediawiki
 
 logging.info("Dependancies loaded")
-
-logging.info("Starting Dash...")
-logging.info("Loading essential dependencies...")
-#Required Deps
-#KeepAlive
-logging.info("Loading KeepAlive")
-from threading import Thread
-
-from flask import Flask
-
-app = Flask('')
-
-
-@app.route('/')
-def main():
-	return "Your Bot Is Ready"
-
-
-def run():
-	app.run(host="0.0.0.0", port=8000)
-
-
-def keep_alive():
-	server = Thread(target=run)
-	server.start()
-
-
-#logging.info("[Dash/keepalive.py] KeepAlive loaded")
 
 client = discord.Client()
 
