@@ -99,10 +99,10 @@ async def ping(ctx):
 	logging.info(f"Dash/bot.py:cmd] Bot pinged. Latency is {latency}")
 
 @bot.command()
-"""
-Sends a message back to a user.
-"""
 async def echo(ctx, *, content: str):
+	"""
+	Sends a message back to a user.
+	"""
 	await ctx.send(content)
 
 
