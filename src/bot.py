@@ -33,8 +33,8 @@ import json
 
 logging.info("External API 'json' loaded")
 
-logging.info("")
 import mediawiki
+logging.info("External API 'mediawiki' loaded")
 
 logging.info("Dependancies loaded")
 
@@ -80,6 +80,8 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
 	"""
     Gets the current latency of Dash.
+
+	No args.
     """
 	logging.info("Dash/bot.py:cmd] Command ping recieved")
 	# Get the latency of the bot
@@ -98,6 +100,9 @@ async def ping(ctx):
 async def echo(ctx, *, content: str):
 	"""
 	Sends a message back to a user.
+
+	Args:
+
 	"""
 	await ctx.send(content)
 
