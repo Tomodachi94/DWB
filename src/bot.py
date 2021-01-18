@@ -29,12 +29,17 @@ import discord
 from discord.ext import commands
 
 logging.info("External module 'discord' loaded")
+logging.info("Loading 'json' module")
 import json
 
 logging.info("External module 'json' loaded")
-
+logging.info("Loading 'mediawiki' module")
 import mediawiki
 logging.info("External module 'mediawiki' loaded")
+
+logging.info("Loading 'random' module")
+import random
+logging.info("Module 'random' loaded")
 
 logging.info("Dependancies loaded")
 
@@ -118,14 +123,15 @@ async def wikilink(ctx, *, linkToBeConverted: str):
 		await ctx.send("Page does not exist. Here's the link anyways.")
 	await ctx.send(os.getenv("MEDIAWIKI_WIKI") + linkToBeConverted)
 
-@bot.command()
-async def b(ctx, *, thingToDiss: str):
+@bot.command(aliases=['b', 'bitch'])
+async def diss(ctx, *, thingToDiss: str):
 	"""Disses the provided argument.
 
 	Args:
 		thingToDiss (str): The thing to diss.
 	"""
-	await ctx.send(thingToDiss + " is a bitch!")
+	insults = ["bitch", "annoyance", "fucking fucker", "dicsord"]
+	await ctx.send(thingToDiss + " is a " + random.choice(insults) + ".")
 
 @bot.command()
 async def helpuser(ctx):
