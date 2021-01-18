@@ -1,0 +1,17 @@
+name: pdoc3 Documentation Builder
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build_docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+      - uses: BSFishy/pip-action@v1
+        with:
+          packages: |
+            pdoc3
+      - run: pdoc —-html docs
