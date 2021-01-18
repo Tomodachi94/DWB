@@ -14,4 +14,4 @@ jobs:
         with:
           packages: |
             pdoc3
-      - run: python -m pdoc — html src — html-dir docs
+      - run: python -m pdoc -- html src -- html-dir docs
