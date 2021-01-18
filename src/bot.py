@@ -12,29 +12,29 @@ logging.info("Starting Dash...")
 logging.info("Loading dependencies...")
 
 logging.info("")
-logging.info("Loading 'os' API")
+logging.info("Loading 'os' module")
 import os
 
-logging.info("External API 'os' loaded")
-logging.info("Loading 'requests' API")
+logging.info("External module 'os' loaded")
+logging.info("Loading 'requests' module")
 import requests
 
-logging.info("External API 'requests' loaded")
-logging.info("Loading 'flask' API")
+logging.info("External module 'requests' loaded")
+logging.info("Loading 'flask' module")
 import flask
 
-logging.info("External API 'flask' loaded")
-logging.info("Loading 'discord' API")
+logging.info("External module 'flask' loaded")
+logging.info("Loading 'discord' module")
 import discord
 from discord.ext import commands
 
-logging.info("External API 'discord' loaded")
+logging.info("External module 'discord' loaded")
 import json
 
-logging.info("External API 'json' loaded")
+logging.info("External module 'json' loaded")
 
 import mediawiki
-logging.info("External API 'mediawiki' loaded")
+logging.info("External module 'mediawiki' loaded")
 
 logging.info("Dependancies loaded")
 
