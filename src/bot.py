@@ -66,7 +66,7 @@ async def on_command_error(ctx, error):
 		)
 
 @bot.command()
-@bot.is_owner()
+@commands.is_owner()
 async def shutdown(ctx):
     await ctx.bot.logout()
 
