@@ -68,8 +68,11 @@ async def on_command_error(ctx, error):
 @bot.command()
 @commands.is_owner()
 async def shutdown(ctx):
+	"""Shuts down the bot. Owner-only.
+	No arguments.
+	"""
 	await ctx.send("Shutting down... G'night, Mom!")
-    await ctx.bot.logout()
+	await ctx.bot.logout()
 
 #@bot.command()
 #@commands.is_owner()
@@ -79,10 +82,9 @@ async def shutdown(ctx):
 
 @bot.command()
 async def ping(ctx):
-	"""
-    Gets the current latency of Dash.
+	"""Gets the current latency of Dash.
 
-	No args.
+	No arguments.
     """
 	logging.info("Dash/bot.py:cmd] Command ping recieved")
 	# Get the latency of the bot
@@ -99,34 +101,39 @@ async def ping(ctx):
 
 @bot.command()
 async def echo(ctx, *, content: str):
-	"""
-	Sends a message back to a user.
+	"""Repeats something back.
 
 	Args:
-
+		content (str): The thing you want repeated.
 	"""
 	await ctx.send(content)
 
 
 @bot.command(aliases=['wl', 'link'])
-async def wikilink(ctx, *, arg: str):
-	arg.replace(" ", "_")
-	r = requests.get(wikidomain + arg)
+async def wikilink(ctx, *, linkToBeConverted: str):
+	"""Converts a string into a link on your wiki.
+
+	Args:
+		linkToBeConverted (str): The link to be converted.
+	"""
+	linkToBeConverted.replace(" ", "_")
+	r = requests.get(wikidomain + linkToBeConverted)
 	if r.status_code == 404:
 		await ctx.send("Page does not exist. Here's the link anyways.")
-	await ctx.send(wikidomain + arg)
+	await ctx.send(wikidomain + linkToBeConverted)
 
 @bot.command()
-async def b(ctx, *, thingToDiss):
-  """
-  Disses the provided argument.
-  """
-  await ctx.send(thingToDiss + " is a bitch!")
+async def b(ctx, *, thingToDiss: str):
+	"""Disses the provided argument.
+
+	Args:
+		thingToDiss (str): The thing to diss.
+	"""
+	await ctx.send(thingToDiss + " is a bitch!")
 
 @bot.command()
 async def helpuser(ctx):
-  """
-  Returns help for a helpuser.
+  """Returns help for a helpuser.
   """
   embed=discord.Embed(title="Hello!", description="This is the FTB *wiki* Discord, not the Official FTB Discord. For an invite to that server and others that can better help you, please visit <#342025316442701834>.", color=0x0a1bff)
   embed.set_author(name=ctx.author)
