@@ -68,10 +68,11 @@ async def on_command_error(ctx, error):
 @bot.command()
 @commands.is_owner()
 async def shutdown(ctx):
+	await ctx.send("Shutting down... G'night, Mom!")
     await ctx.bot.logout()
 
 #@bot.command()
-#@bot.is_owner()
+#@commands.is_owner()
 #async def restart(ctx):
 #    await ctx.bot.logout()
 #    await bot.login(os.getenv("DISCORD_TOKEN"), bot=True)
