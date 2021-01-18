@@ -40,13 +40,9 @@ logging.info("Dependancies loaded")
 
 client = discord.Client()
 
-prefix = os.getenv("DISCORD_PREFIX")
-TOKEN = os.getenv("DISCORD_TOKEN")
-wikidomain = os.getenv("MEDIAWIKI_WIKI")
-
 from discord.ext import commands
 
-bot = commands.Bot(command_prefix=prefix)
+bot = commands.Bot(command_prefix=os.getenv("DISCORD_PREFIX"))
 
 
 @bot.event
@@ -54,7 +50,7 @@ async def on_ready():
 	logging.info("Dash is online")
 	logging.info("Setting status")
 	await bot.change_presence(
-	    activity=discord.Game(name=prefix + "help for help"))
+	    activity=discord.Game(name=os.getenv("DISCORD_PREFIX") + "help for help"))
 	logging.info("Status set")
 
 
@@ -104,7 +100,7 @@ async def echo(ctx, *, content: str):
 	"""Repeats something back.
 
 	Args:
-		content (str): The thing you want repeated.
+		content (str): The string you want repeated.
 	"""
 	await ctx.send(content)
 
@@ -117,10 +113,10 @@ async def wikilink(ctx, *, linkToBeConverted: str):
 		linkToBeConverted (str): The link to be converted.
 	"""
 	linkToBeConverted.replace(" ", "_")
-	r = requests.get(wikidomain + linkToBeConverted)
+	r = requests.get(os.getenv("MEDIAWIKI_WIKI") + linkToBeConverted)
 	if r.status_code == 404:
 		await ctx.send("Page does not exist. Here's the link anyways.")
-	await ctx.send(wikidomain + linkToBeConverted)
+	await ctx.send(os.getenv("MEDIAWIKI_WIKI") + linkToBeConverted)
 
 @bot.command()
 async def b(ctx, *, thingToDiss: str):
@@ -140,4 +136,4 @@ async def helpuser(ctx):
   embed.set_footer(text="_help for help | Bot by Tomodachi94")
   await ctx.send(embed=embed)
 
-bot.run(TOKEN)
+bot.run(os.getenv("DISCORD_TOKEN"))
