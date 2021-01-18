@@ -11,4 +11,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v1
       - run: python -m pip install pdoc3
+      - run: python -m pip install requests #For some reason it doesn’t work without this
       - run: python -m pdoc -- html src -- html-dir docs
