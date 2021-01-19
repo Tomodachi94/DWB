@@ -138,7 +138,7 @@ async def diss(ctx, *, thingToDiss: str):
 	"fucking fucker",
 	"dicsord", "jerkwad",
 	"something that needs to go to the Nether",
-	"[REDACTED]",
+	"[REDACTED]", "cotton-headed ninnymuggins",
 	"something that needs to commit Lego-step", ]
 	await ctx.send(thingToDiss + " is a " + random.choice(insults) + "!")
 
