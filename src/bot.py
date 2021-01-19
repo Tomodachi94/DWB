@@ -47,6 +47,8 @@ client = discord.Client()
 
 from discord.ext import commands
 
+version = "v1.1.0"
+
 bot = commands.Bot(command_prefix=os.getenv("DISCORD_PREFIX"))
 
 
@@ -141,5 +143,17 @@ async def helpuser(ctx):
   embed.set_author(name=ctx.author)
   embed.set_footer(text="_help for help | Bot by Tomodachi94")
   await ctx.send(embed=embed)
+@bot.command()
+async def about(ctx)
+	"""Gives information about the bot.
 
+	Args:
+		None.
+	"""
+	embed=discord.Embed(title="About Dash", description="__Dash__ is a Discord bot for [the Official FTB wiki](ftb.gamepedia.com)'s [Discord](https://discord.gg/2Pq6Rft) inspired by SatanicSanta's [IRC wiki bot](https://github.com/FTB-Gamepedia/SatanicBot).")
+	embed.add_field(name="Source", value="[on GitHub](https://github.com/Tomodachi94/Dash)", inline=True)
+	embed.add_field(name="Author", value="[Tomodachi94](https://tomodachi94.github.io)", inline=True)
+	embed.add_field(name="Version", value=version, inline=True)
+	await ctx.send(embed=embed)
+	
 bot.run(os.getenv("DISCORD_TOKEN"))
