@@ -1,3 +1,11 @@
+name: Run
+on:
+  push:
+    paths:
+      - '*.py'
+  pull_request:
+    paths:
+      - '*.py'
  steps:
    - name: checkout repo content
      uses: actions/checkout@v2 # checkout the repository content to github runner.
@@ -11,4 +19,3 @@
        python src/bot.py
      env:
        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }} # if run.py requires passwords..etc, set it as secrets
-
