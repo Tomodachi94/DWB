@@ -1,11 +1,7 @@
  name: Run
  on:
-   push:
-     paths:
-       - '*.py'
-   pull_request:
-     paths:
-       - '*.py'
+   push 
+   pull_request
  jobs:
    run:
      name: Run
