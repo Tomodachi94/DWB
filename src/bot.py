@@ -151,7 +151,7 @@ async def helpuser(ctx):
   embed.set_footer(text=embedFooter)
   await ctx.send(embed=embed)
 @bot.command()
-async def about(ctx)
+async def about(ctx):
 	"""Gives information about the bot.
 
 	Args:
