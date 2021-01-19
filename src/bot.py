@@ -130,7 +130,7 @@ async def diss(ctx, *, thingToDiss: str):
 	Args:
 		thingToDiss (str): The thing to diss.
 	"""
-	insults = ["bitch", "annoyance", "fucking fucker", "dicsord"]
+	insults = ["bitch", "annoyance", "fucking fucker", "dicsord", "jerkwad", "something that needs to go to the Nether", "[REDACTED]"]
 	await ctx.send(thingToDiss + " is a " + random.choice(insults) + ".")
 
 @bot.command()
