@@ -48,6 +48,7 @@ client = discord.Client()
 from discord.ext import commands
 
 version = "v1.1.0"
+embedFooter = f"_help for help | Dash {version}"
 
 bot = commands.Bot(command_prefix=os.getenv("DISCORD_PREFIX"))
 
@@ -141,7 +142,7 @@ async def helpuser(ctx):
   """
   embed=discord.Embed(title="Hello!", description="This is the FTB *wiki* Discord, not the Official FTB Discord. For an invite to that server and others that can better help you, please visit <#342025316442701834>.", color=0x0a1bff)
   embed.set_author(name=ctx.author)
-  embed.set_footer(text="_help for help | Bot by Tomodachi94")
+  embed.set_footer(text=embedFooter)
   await ctx.send(embed=embed)
 @bot.command()
 async def about(ctx)
@@ -154,6 +155,7 @@ async def about(ctx)
 	embed.add_field(name="Source", value="[on GitHub](https://github.com/Tomodachi94/Dash)", inline=True)
 	embed.add_field(name="Author", value="[Tomodachi94](https://tomodachi94.github.io)", inline=True)
 	embed.add_field(name="Version", value=version, inline=True)
+	embed.set_footer(text=embedFooter)
 	await ctx.send(embed=embed)
-	
+
 bot.run(os.getenv("DISCORD_TOKEN"))
