@@ -12,3 +12,8 @@ Dash - A Discord bot for the FTB Gamepedia Discord.
 © Tomodachi94 2021 MIT License
 
 A full copy of the license should have been distrubuted with this program. If not, the license can be found [here](https://mit-license.org/).
+
+# People
+- Tomodachi94 - Lead Developer
+- Xbony2 and SizableShrimp - Conpeting bot makers
+- AstroFlux - Bot breaker
