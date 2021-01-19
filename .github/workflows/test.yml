@@ -10,16 +10,16 @@
    run:
      name: Run
      runs-on: ubuntu-latest
- steps:
-   - name: checkout repo content
-     uses: actions/checkout@v2 # checkout the repository content to github runner.
-   - name: setup python
-     uses: actions/setup-python@v2
-     with:
-       python-version: 3.8 #install the python needed
-   - name: execute py script # run the run.py to get the latest data
-     run: |
-       python -m pip install -r requirements.txt
-       python src/bot.py
-     env:
-       DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }} # if run.py requires passwords..etc, set it as secrets
+       steps:
+         - name: checkout repo content
+           uses: actions/checkout@v2 # checkout the repository content to github runner.
+         - name: setup python
+           uses: actions/setup-python@v2
+           with:
+             python-version: 3.8 #install the python needed
+         - name: execute py script # run the run.py to get the latest data
+           run: |
+             python -m pip install -r requirements.txt
+             python src/bot.py
+           env:
+             DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }} # if run.py requires passwords..etc, set it as secrets
