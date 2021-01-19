@@ -1,5 +1,3 @@
-
-
 # https://github.com/Tomodachi94/Dash
 # Dash - A Discord bot for the FTB Gamepedia Discord.
 # (c) Tomodachi94 2021 MIT License
