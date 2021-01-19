@@ -68,9 +68,9 @@ async def on_command_error(ctx, error):
 		)
 
 @bot.command()
-@commands.is_owner()
+@commands.has_permissions(kick_members=True) 
 async def shutdown(ctx):
-	"""Shuts down the bot. Owner-only.
+	"""Shuts down the bot. Owner- and moderator- only.
 	No arguments.
 	"""
 	await ctx.send("Shutting down... G'night, Mom!")
