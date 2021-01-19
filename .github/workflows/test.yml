@@ -11,4 +11,3 @@
        python src/bot.py
      env:
        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }} # if run.py requires passwords..etc, set it as secrets
-       
