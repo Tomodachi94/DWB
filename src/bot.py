@@ -1,5 +1,3 @@
-
-
 # https://github.com/Tomodachi94/Dash
 # Dash - A Discord bot for the FTB Gamepedia Discord.
 # (c) Tomodachi94 2021 MIT License
@@ -70,9 +68,9 @@ async def on_command_error(ctx, error):
 		)
 
 @bot.command()
-@commands.is_owner()
+@commands.has_permissions(kick_members=True) 
 async def shutdown(ctx):
-	"""Shuts down the bot. Owner-only.
+	"""Shuts down the bot. Owner- and moderator- only.
 	No arguments.
 	"""
 	await ctx.send("Shutting down... G'night, Mom!")
@@ -138,7 +136,7 @@ async def diss(ctx, *, thingToDiss: str):
 	"fucking fucker",
 	"dicsord", "jerkwad",
 	"something that needs to go to the Nether",
-	"[REDACTED]",
+	"[REDACTED]", "cotton-headed ninnymuggins",
 	"something that needs to commit Lego-step", ]
 	await ctx.send(thingToDiss + " is a " + random.choice(insults) + "!")
 
