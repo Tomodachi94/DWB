@@ -43,6 +43,12 @@ logging.info("Dependancies loaded")
 
 client = discord.Client()
 
+logging.info("Loading basic 'web server' to keep repl online")
+import keepalive
+
+keepalive.run()
+keepalive.keepalive()
+
 from discord.ext import commands
 
 version = "v1.1.0"
