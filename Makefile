@@ -14,7 +14,7 @@ help:
 	@echo "------------------------------------"
 	
 run:
-	${PYTHON} src/bot.py.py
+	python src/bot.py
 
 
 clean:
