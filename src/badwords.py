@@ -9,3 +9,7 @@ insults = ["bitch",
             "something that needs to go to the Nether",
             "[REDACTED]", "cotton-headed ninnymuggins",
             "something that needs to commit Lego-step", ]
+
+def env():
+  import dotenv
+  dotenv.load_dotenv()

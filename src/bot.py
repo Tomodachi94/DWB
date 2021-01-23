@@ -33,18 +33,12 @@ import random
 logging.info("Module 'random' loaded")
 logging.info("Loading custom module 'badwords'")
 
-import helpfile
+import badwords
 logging.info("Custom module 'badwords' loaded!")
 
 logging.info("Dependancies loaded")
 
 client = discord.Client()
-
-logging.info("Loading basic 'web server' to keep repl online")
-import keepalive
-
-keepalive.run()
-keepalive.keepalive()
 
 from discord.ext import commands
 
@@ -168,3 +162,8 @@ async def about(ctx):
     await ctx.send(embed=embed)
 
 bot.run(os.getenv("DISCORD_TOKEN"))
+
+logging.info("Loading basic 'web server' to keep repl online")
+import keepalive
+
+keepalive.run()
