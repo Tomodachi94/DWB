@@ -153,8 +153,7 @@ async def about(ctx):
     embed = discord.Embed(title="About Dash", description="""__Dash__ is a Discord bot for 
     [the Official FTB wiki](ftb.gamepedia.com)'s 
     [Discord](https://discord.gg/2Pq6Rft)
-    inspired by SatanicSanta's [IRC wiki bot]
-    (https://github.com/FTB-Gamepedia/SatanicBot).""")
+    inspired by SatanicSanta's [IRC wiki bot](https://github.com/FTB-Gamepedia/SatanicBot).""")
     embed.add_field(name="Source", value="[on GitHub](https://github.com/Tomodachi94/Dash)", inline=True)
     embed.add_field(name="Author", value="[Tomodachi94](https://tomodachi94.github.io)", inline=True)
     embed.add_field(name="Version", value=version, inline=True)
@@ -167,3 +166,4 @@ logging.info("Loading basic 'web server' to keep repl online")
 import keepalive
 
 keepalive.run()
+keepalive.keepalive()
