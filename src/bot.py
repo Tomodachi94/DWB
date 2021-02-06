@@ -9,43 +9,19 @@ import logging
 
 logging.info("Starting Dash...")
 logging.info("Loading dependencies...")
-
-logging.info("")
-logging.info("Loading 'os' module")
 import os
-
-logging.info("External module 'os' loaded")
-logging.info("Loading 'requests' module")
 import requests
-
-logging.info("External module 'requests' loaded")
-logging.info("Loading 'discord' module")
 import discord
 from discord.ext import commands
-
-logging.info("External module 'discord' loaded")
-logging.info("Loading 'mediawiki' module")
 import mediawiki
-logging.info("External module 'mediawiki' loaded")
-
-logging.info("Loading 'random' module")
 import random
-logging.info("Module 'random' loaded")
-logging.info("Loading external 'dotenv' module")
 from dotenv import load_dotenv
 load_dotenv()
-logging.info("External module 'dotenv' loaded")
-
-logging.info("Loading custom module 'badwords'")
-
 import badwords
-logging.info("Custom module 'badwords' loaded!")
 
 logging.info("Dependancies loaded")
 
 client = discord.Client()
-
-from discord.ext import commands
 
 version = "v1.1.0"
 embedFooter = f"_help for help | Dash {version}"
@@ -136,7 +112,8 @@ async def diss(ctx, *, thingToDiss: str):
     Args:
         thingToDiss (str): The thing to diss.
     """
-    await ctx.send(thingToDiss + " is a " + random.choice(helpfile.insults) + "!")
+    insults = json.load(open('assets/json/insults.json',))
+    await ctx.send(thingToDiss + " is a " + random.choice(insults) + "!")
 
 @bot.command()
 async def helpuser(ctx):
