@@ -12,6 +12,7 @@ requests = "^2.25.1"
 pymediawiki = "^0.7.0"
 flask = "^1.1.2"
 python-dotenv = "^0.15.0"
+sh = "^1.14.1"
 
 [tool.poetry.dev-dependencies]
 
