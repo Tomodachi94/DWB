@@ -31,6 +31,11 @@ logging.info("External module 'mediawiki' loaded")
 logging.info("Loading 'random' module")
 import random
 logging.info("Module 'random' loaded")
+logging.info("Loading external 'dotenv' module")
+from dotenv import load_dotenv
+load_dotenv()
+logging.info("External module 'dotenv' loaded")
+
 logging.info("Loading custom module 'badwords'")
 
 import badwords
@@ -162,8 +167,8 @@ async def about(ctx):
 
 bot.run(os.getenv("DISCORD_TOKEN"))
 
-logging.info("Loading basic 'web server' to keep repl online")
-import keepalive
+#logging.info("Loading basic 'web server' to keep repl online")
+#import keepalive
 
-keepalive.run()
-keepalive.keepalive()
+#keepalive.run()
+#keepalive.keepalive().
