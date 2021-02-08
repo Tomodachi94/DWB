@@ -9,12 +9,9 @@ import logging
 
 logging.info("Starting Dash...")
 logging.info("Loading dependencies...")
-import os
-import requests
-import discord
+import os, json, random
+import mediawiki, discord, requests
 from discord.ext import commands
-import mediawiki
-import random
 from dotenv import load_dotenv
 load_dotenv()
 import badwords
@@ -46,6 +43,7 @@ async def on_command_error(ctx, error):
             "That command doesn't sit right with my stomach... :face_vomiting: Type **_help** for commands and their usages."
         )
 
+
 @bot.command()
 @commands.has_permissions(kick_members=True) 
 async def shutdown(ctx):
@@ -72,13 +70,11 @@ async def ping(ctx):
     logging.info("Dash/bot.py:cmd] Command ping recieved")
     latency = bot.latency #Get the latency of the bot, courtesy of the Discord.py library
     latency = round(latency, 3) #Round the result
-    #Convert to a string
-    latency = str(latency)
-    # Send it to the user
-    embed = discord.Embed(title="Ping", description=f"Ping is {latency}")
+    latency = str(latency) #Convert to a string
+    embed = discord.Embed(title="Ping", description=f"Ping is {latency}") # Send it to the user
     embed.set_footer(text="_help for help | Bot by Tomodachi94")
     await ctx.send(embed=embed)
-    logging.info(f"Dash/bot.py:cmd] Bot pinged. Latency is {latency}")
+    logging.info(f"Dash/bot.py:cmd] Bot pinged. Latency is {latency}.")
 
 
 @bot.command()
@@ -113,7 +109,7 @@ async def diss(ctx, *, thingToDiss: str):
         thingToDiss (str): The thing to diss.
     """
     insults = json.load(open('assets/json/insults.json',))
-    await ctx.send(thingToDiss + " is a " + random.choice(insults) + "!")
+    await ctx.send(f"{thingToDiss} is a {random.choice(insults)} !")
 
 @bot.command()
 async def helpuser(ctx):
