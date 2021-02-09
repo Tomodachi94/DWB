@@ -1,6 +1,7 @@
 {
     "mediawikiWiki": "https://ftb.gamepedia.com/",
     "discordPrefix": "_",
-    "discordStatus":  ""
-    "mediawikiEndpoint": "{mediawikiWiki}api.php"
+    "discordStatus":  "_help for help",
+    "mediawikiEndpoint": "{mediawikiWiki}api.php",
+    "debugMode": false
 }

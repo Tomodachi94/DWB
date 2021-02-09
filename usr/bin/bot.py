@@ -5,14 +5,12 @@
 #  If not, the license can be found here:
 # https://mit-license.org/
 
-
-
+import os, json, random, logging
 logging.info("Starting Dash...")
 logging.info("Loading dependencies...")
-import os, json, random, logging
 import mediawiki, discord, requests
 from discord.ext import commands
-from dotenv import load_dotenv
+from keepalive import keepalive
 
 logging.info("Dependancies loaded")
 
@@ -22,21 +20,33 @@ version = "v1.1.0"
 embedFooter = f"_help for help | Dash {version}"
 
 def prepConfig():
+    from dotenv import load_dotenv
     configfile = open('usr/config/settings.json',)
     config = json.load(configfile)
-    load_env()
-    config[discordToken] = os.getenv("DISCORD_TOKEN")
-    config[mediawikiUsername] = os.getenv("MEDIAWIKI_USERNAME")
-    config[mediawikiPassword] = os.getenv("MEDIAWIKI_PASSWORD")
+    load_dotenv()
+    config["discordToken"] = os.getenv("DISCORD_TOKEN")
+    config["mediawikiUsername"] = os.getenv("MEDIAWIKI_USERNAME")
+    config["mediawikiPassword"] = os.getenv("MEDIAWIKI_PASSWORD")
+    return config
 
+config = prepConfig()
 
-bot = commands.Bot(command_prefix=Config[discordPrefix]
-logging.log("Dash is online")
-logging.info("Setting status")
-await bot.change_presence(
-  activity=discord.Game(
-      name=config[discordStatus]
+bot = commands.Bot(command_prefix=config["discordPrefix"])
+
 logging.info("Status set")
+
+@bot.event
+async def on_ready():
+  logging.info("Dash is online")
+  logging.info("Setting status")
+  await bot.change_presence(
+    activity=discord.Game(
+      name=config["discordStatus"]
+      )
+)
+  logging.info("Loading basic 'web server' to keep repl online")
+
+keepalive()
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -81,7 +91,7 @@ async def ping(ctx):
 
 @bot.command()
 async def echo(ctx, *, content: str):
-    """Repeats something back.
+    """Repeats something back to you.
 
     Args:
         content (str): The string you want repeated.
@@ -97,9 +107,9 @@ async def wikilink(ctx, *, linkToBeConverted: str):
         linkToBeConverted (str): The link to be converted.
     """
     linkToBeConverted.replace(" ", "_")
-    r = requests.get(os.getenv("MEDIAWIKI_WIKI") + linkToBeConverted)
+    r = requests.get(config["mediawikiWiki"] + linkToBeConverted)
     if r.status_code == 404:
-        await ctx.send("Page does not exist. Here's the link anyways.")
+      await ctx.send("Page does not exist. Here's the link anyways.")
     await ctx.send(os.getenv("MEDIAWIKI_WIKI") + linkToBeConverted)
 
 
@@ -140,9 +150,4 @@ async def about(ctx):
     embed.set_footer(text=embedFooter)
     await ctx.send(embed=embed)
 
-bot.run(config[discordToken])
-
-logging.info("Loading basic 'web server' to keep repl online")
-import keepalive
-
-keepalive.keepalive()
+bot.run(config["discordToken"])

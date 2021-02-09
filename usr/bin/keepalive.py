@@ -1,14 +1,16 @@
 from flask import Flask
 from threading import Thread
 import random
+import bot
 
+config = bot.prepConfig()
 
 app = Flask('')
 
 
 @app.route('/')
 def home():
-    return 'Dash is a bot for wikis.'
+    return f"Dash {version}"
 
 
 def run():
@@ -18,7 +20,7 @@ def run():
     )
 
 
-def keep_alive():
+def keepalive():
     '''
     Creates and starts new thread that runs the function run.
     '''
