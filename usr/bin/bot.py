@@ -5,16 +5,14 @@
 #  If not, the license can be found here:
 # https://mit-license.org/
 
-import logging
+
 
 logging.info("Starting Dash...")
 logging.info("Loading dependencies...")
-import os, json, random
+import os, json, random, logging
 import mediawiki, discord, requests
 from discord.ext import commands
 from dotenv import load_dotenv
-load_dotenv()
-import badwords
 
 logging.info("Dependancies loaded")
 
@@ -23,12 +21,21 @@ client = discord.Client()
 version = "v1.1.0"
 embedFooter = f"_help for help | Dash {version}"
 
-bot = commands.Bot(command_prefix=os.getenv("DISCORD_PREFIX"))
-logging.info("Dash is online")
+def prepConfig():
+    configfile = open('usr/config/settings.json',)
+    config = json.load(configfile)
+    load_env()
+    config[discordToken] = os.getenv("DISCORD_TOKEN")
+    config[mediawikiUsername] = os.getenv("MEDIAWIKI_USERNAME")
+    config[mediawikiPassword] = os.getenv("MEDIAWIKI_PASSWORD")
+
+
+bot = commands.Bot(command_prefix=Config[discordPrefix]
+logging.log("Dash is online")
 logging.info("Setting status")
 await bot.change_presence(
   activity=discord.Game(
-      name=os.getenv("DISCORD_PREFIX") + "help for help"
+      name=config[discordStatus]
 logging.info("Status set")
 
 @bot.event
@@ -53,7 +60,7 @@ async def shutdown(ctx):
 #@commands.is_owner()
 #async def restart(ctx):
 #    await ctx.bot.logout()
-#    await bot.login(os.getenv("DISCORD_TOKEN"), bot=True)
+#    await bot.login(or
 
 
 @bot.command()
@@ -104,7 +111,7 @@ async def diss(ctx, *, thingToDiss: str):
         thingToDiss (str): The thing to diss.
     """
     insults = json.load(open('assets/json/insults.json',))
-    await ctx.send(f"{thingToDiss} is a {random.choice(insults)} !")
+    await ctx.send(f"{thingToDiss} is a {random.choice(insults[insults])} !")
 
 @bot.command()
 async def helpuser(ctx):
@@ -133,7 +140,7 @@ async def about(ctx):
     embed.set_footer(text=embedFooter)
     await ctx.send(embed=embed)
 
-bot.run(os.getenv("DISCORD_TOKEN"))
+bot.run(config[discordToken])
 
 logging.info("Loading basic 'web server' to keep repl online")
 import keepalive
