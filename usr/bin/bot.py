@@ -24,17 +24,12 @@ version = "v1.1.0"
 embedFooter = f"_help for help | Dash {version}"
 
 bot = commands.Bot(command_prefix=os.getenv("DISCORD_PREFIX"))
-
-
-@bot.event
-async def on_ready():
-    logging.info("Dash is online")
-    logging.info("Setting status")
-    await bot.change_presence(
-        activity=discord.Game(
-            name=os.getenv("DISCORD_PREFIX") + "help for help"))
-    logging.info("Status set")
-
+logging.info("Dash is online")
+logging.info("Setting status")
+await bot.change_presence(
+  activity=discord.Game(
+      name=os.getenv("DISCORD_PREFIX") + "help for help"
+logging.info("Status set")
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -140,8 +135,7 @@ async def about(ctx):
 
 bot.run(os.getenv("DISCORD_TOKEN"))
 
-#logging.info("Loading basic 'web server' to keep repl online")
-#import keepalive
+logging.info("Loading basic 'web server' to keep repl online")
+import keepalive
 
-#keepalive.run()
-#keepalive.keepalive().
+keepalive.keepalive()

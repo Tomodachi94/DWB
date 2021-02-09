@@ -8,7 +8,7 @@ app = Flask('')
 
 @app.route('/')
 def home():
-    return 'Im in!'
+    return 'Dash is a bot for wikis.'
 
 
 def run():
