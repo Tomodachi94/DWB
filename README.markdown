@@ -1,4 +1,5 @@
 # Dash
+**This branch is no longer supported. It is in a broken state. Use the `rewrite` branch.**
 [![Dependancy: Discord.py](https://img.shields.io/badge/dependency-discord.py-lightgrey)](https://github.com/Rapptz/discord.py) ![CodeQL: Untested](https://img.shields.io/badge/CodeQL-Untested-yellow)
 
 
